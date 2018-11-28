@@ -1,0 +1,89 @@
+.main {
+  height: 70vh;
+
+}
+
+.leftsection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; 
+}
+
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-size: 10em;
+  margin-bottom: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;  
+  width: 100%;
+}
+
+.startbutton {
+  display: flex;
+  justify-self: center;
+  width: 80%;
+  justify-content: center; 
+}
+
+.canvascontainer {
+  border-radius: 10px;
+}
+
+  canvas {
+    margin-top: 5px;
+    width:100%;
+    height:100%;
+    background-color: rgb(182, 169, 169);
+  }
+
+h3 {
+ font-size: 2.5em;
+ text-align: center;
+
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center; 
+}
+
+.sidebar {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+}
+
+.hearts, .score, .streak {
+  justify-content: center;
+  width: 100%;  
+}
+.hearts {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  width: 80%;  
+}
+.activeheart {
+
+    color: #FF0000;
+    font-size: 4em;
+  }
+
+
+
+  .buttonscontainer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .alternativebuttons {
+    margin: 10px;
+    width: 100%;
+  }
+
