@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -17,9 +18,9 @@
       <button type="button" class="btn btn-primary btn-lg startbutton">New Game</button>
     </div>
     <div class="col-md-6 canvascontainer">
-      <canvas></canvas>
+      <canvas id="canvas" height="680px" width="800px"></canvas>
     </div>
-    <div class="col-md-1 sidebar container">
+    <div class="col-md-2 sidebar container">
         <div class="hearts">
             <span class="glyphicon glyphicon-heart activeheart"></span><span class="glyphicon glyphicon-heart activeheart"></span><span class="glyphicon glyphicon-heart activeheart"></span>
         </div>
@@ -38,14 +39,14 @@
   <section class="buttonscontainer">
     <div class="container">
 <div class="row">
-<div class="col-md-3"></div> 
-  <div class="col-md-6 align-self-center">
-            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button1">Button 1</button>
-            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button2">Button 2</button>   
-            
+  <div class="col-md-12 container align-self-center">
+    <div class="col-md-6">            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button1">Button 1</button>
+      <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button2">Button 2</button>   </div>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button3">Button 3</button>
-            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button4">Button 4</button>
+            
+      <div class="col-md-6">            <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button3">Button 3</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button4">Button 4</button></div>
+
      </div>
     
 
@@ -53,9 +54,9 @@
 </div>
   </section>
   
-  
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
   <script src="words.js"></script>
   <script src="script.js"></script>
 </body>
