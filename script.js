@@ -8,22 +8,31 @@ ctx.clearRect(0,0,700,700);
 }
 
 function updateCanvas(){
-  y += 1;
+
+  y += speed;
   clearCanvas();
   ctx.font = "30px Arial";
   ctx.fillText(chosenWord, 400, y); 
- window.requestAnimationFrame(updateCanvas);
+  if (y==720) {
+    checkGameOver();
+    hearts--;
+    updateHearts();
+    streak = 0;
+    updateStreak();
+    refreshGame();
+  }
+  //counter = 0;
+  window.requestAnimationFrame(updateCanvas);
 }
-window.requestAnimationFrame(updateCanvas);
+window.onload = window.requestAnimationFrame(updateCanvas);
 
-// refreshing game (testing) BUG: accelerating after each guess;
+// refreshing game 
 
 function refreshGame () {
   meanings = [];
   getWord();
   updateButtons();
   y = 0;
-  updateCanvas();
 }
 
 //restart game
@@ -63,9 +72,42 @@ function updateButtons () {
 }
 updateButtons();
 
+//buttons feedback TESTING
+
+/* function buttonFeedback() {
+  if (this.innerHTML == chosenObject.meaning) {
+    this.classlist.toggle("btn-success");
+    this.classlist.toggle("btn-primary");
+  } else {
+    this.classlist.toggle("btn-danger");
+    this.classlist.toggle("btn-primary");
+  }
+}
+ */
+// buttons speed
+
+var easyButton = document.getElementById("easybutton");
+easyButton.onclick = function () {
+  speed = 1;
+  multiplier = 5;
+};
+
+var normalButton = document.getElementById("normalbutton");
+normalButton.onclick = function () {
+  speed = 2;
+  multiplier = 10;
+};
+
+var hardButton = document.getElementById("hardbutton");
+hardButton.onclick = function () {
+  speed = 3;
+  multiplier = 20;
+};
+
 // guessing word
 
 button1.onclick = function () { 
+  
   guessWord(button1.innerHTML);
 };
 button2.onclick = function () { 

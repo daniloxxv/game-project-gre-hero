@@ -1,6 +1,8 @@
 //words constructor comes here
+var speed = 2;
 var hearts = 3;
 var points = 0;
+var multiplier = 10;
 var streak = 0;
 var wordsList= [];
 var wordsArray = wordsList;
@@ -108,7 +110,7 @@ function shuffle(array) {
 
 function guessWord (meaning){
   if (meaning == chosenObject.meaning) {
-    points += 10*(streak+1);
+    points += multiplier*(streak+1);
     updateScore ();
     streak++;
     updateStreak ();
