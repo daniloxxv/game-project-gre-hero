@@ -40,7 +40,6 @@ function newGame () {
   wordsArray = wordsList;
   getWord();
   game = setInterval(updateCanvas, 15);
-  refreshGame ();
 }
 
 //new game button
@@ -69,16 +68,16 @@ updateButtons();
 
 //buttons feedback TESTING
 
-/* function buttonFeedback() {
-  if (this.innerHTML == chosenObject.meaning) {
-    this.classlist.toggle("btn-success");
-    this.classlist.toggle("btn-primary");
+/* function buttonFeedback(button) {
+  if (button.innerHTML == chosenObject.meaning) {
+    button.classlist.toggle("btn-success");
+    button.classlist.toggle("btn-primary");
   } else {
-    this.classlist.toggle("btn-danger");
-    this.classlist.toggle("btn-primary");
+    button.classlist.toggle("btn-danger");
+    button.classlist.toggle("btn-primary");
   }
-}
- */
+} */
+ 
 // buttons speed
 
 var easyButton = document.getElementById("easybutton");
@@ -101,7 +100,7 @@ hardButton.onclick = function () {
 
 // guessing word
 
-button1.onclick = function () { 
+button1.onclick = function () {
   guessWord(button1.innerHTML);
 };
 button2.onclick = function () { 
