@@ -67,8 +67,13 @@ h2 {
 .activeheart {
 
     color: #FF0000;
-    font-size: 4em;
+ 
   }
+
+ .heart {
+  font-size: 4em;
+  
+ }
 
 
 

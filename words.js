@@ -1,10 +1,11 @@
 //words constructor comes here
-
+var hearts = 3;
+var points = 0;
+var streak = 0;
 var wordsArray = [];
 var chosenObject;
 var chosenWord;
 var meanings = [];
-var randomNumber;
 
 function Word (word, meaning) {
   this.word = word;
@@ -36,11 +37,27 @@ new Word ("capricious", "given to mood swings");
 new Word ("engender", "produce, cause");
 new Word ("homogenous", "of the same kind");
 new Word ("loquacious", "talkative, wordy");
+new Word ("pragmatic", "practical, sensible");
+new Word ("volatile", "likely to change quickly");
+new Word ("apathy", "lack of interest");
+new Word ("corroborate", "confirm");
+new Word ("ephemeral", "brief, transitory");
+new Word ("laconic", "concise, monosyllabic");
+new Word ("mitigate", "make less severe");
+new Word ("advocate", "support publicly");
+new Word ("cacophony", "unpleasant sounds");
+new Word ("enervate", "weaken mentally");
+new Word ("ingenuous", "innocent, naive");
+new Word ("misanthrope", "someone who hates people");
+new Word ("paradoxical", "self-contradicting");
+new Word ("venerate", "admire greatly");
+new Word ("deride", "insult, criticize");
+
 
 //getting word
 
 function getWord() {
-  randomNumber = Math.floor((Math.random() * wordsArray.length));
+  var randomNumber = Math.floor((Math.random() * wordsArray.length));
   chosenObject = wordsArray[randomNumber];
   wordsArray.slice(randomNumber, 1);
   chosenWord = chosenObject.word.toUpperCase();
@@ -50,26 +67,64 @@ function getWord() {
 //testing getWord
 getWord();
 
-// getting meanings -- TODO: remove meanigns which are already in the array
+// getting meanings -- currently drawing a new random number in case of duplicity. TODO: consider creating a temporary array of meanings and removing each pick
 function getMeanings (object) {
   meanings.push(object.meaning);
-  meanings.push(wordsArray[Math.floor((Math.random() * wordsArray.length))].meaning);
-  meanings.push(wordsArray[Math.floor((Math.random() * wordsArray.length))].meaning);
-  meanings.push(wordsArray[Math.floor((Math.random() * wordsArray.length))].meaning);
+  var randomNumber1, randomNumber2, randomNumber3;
+  randomNumber1 = Math.floor((Math.random() * wordsArray.length));
+  meanings.push(wordsArray[randomNumber1].meaning);
+  randomNumber2 = Math.floor((Math.random() * wordsArray.length));
+  if (randomNumber2 === randomNumber1) {
+    randomNumber2 = Math.floor((Math.random() * wordsArray.length));
+  }
+  meanings.push(wordsArray[randomNumber2].meaning);
+  randomNumber3 = Math.floor((Math.random() * wordsArray.length));
+  if (randomNumber3 === randomNumber1 || randomNumber3 === randomNumber2) {
+    randomNumber3 = Math.floor((Math.random() * wordsArray.length));
+  }
+  meanings.push(wordsArray[randomNumber3].meaning);
+
+  shuffle(meanings);
 }
 
 console.log(meanings);
+
+//shuffle meanings 
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
 
 // guessing word
 
 function guessWord (meaning){
   if (meaning == chosenObject.meaning) {
+    points += 10*(streak+1);
+    streak++;
+    return true;
+    
+  } else {
+    hearts--;
+    updateHearts();
+    streak = 0;
+    return false;
+  }
+}
+
+// check if the game is over
+
+function checkGameOver () {
+  if (hearts < 0) {
     return true;
   } else {
     return false;
   }
 }
-
-
-
-
