@@ -119,10 +119,6 @@ function guessWord (meaning){
     
   } else {
     checkGameOver();
-    hearts--;
-    updateHearts();
-    streak = 0;
-    updateStreak ();
     return false;
   }
 }
@@ -131,9 +127,10 @@ function guessWord (meaning){
 
 function checkGameOver () {
   if (hearts == 0) {
-    alert("play again?");
+    alert(`Your final score is ${points}. Click New Game to play again.`);
     return true;
   } else {
+    updateHearts();
     refreshGame();
     return false;
   }

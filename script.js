@@ -15,16 +15,11 @@ function updateCanvas(){
   ctx.fillText(chosenWord, 400, y); 
   if (y==720) {
     checkGameOver();
-    hearts--;
-    updateHearts();
-    streak = 0;
-    updateStreak();
-    refreshGame();
   }
-  //counter = 0;
-  window.requestAnimationFrame(updateCanvas);
+  var myReq = requestAnimationFrame(updateCanvas);
+   //window.requestAnimationFrame(updateCanvas);
 }
-window.onload = window.requestAnimationFrame(updateCanvas);
+ window.requestAnimationFrame(updateCanvas);
 
 // refreshing game 
 
@@ -107,7 +102,6 @@ hardButton.onclick = function () {
 // guessing word
 
 button1.onclick = function () { 
-  
   guessWord(button1.innerHTML);
 };
 button2.onclick = function () { 
@@ -128,6 +122,9 @@ var heartsCounter = document.getElementById("heartscounter");
 
 
 function updateHearts() {
+  hearts--;
+  streak = 0;
+  updateStreak ();
   activeHearts[activeHearts.length-1].classList.toggle("activeheart");
 }
 
