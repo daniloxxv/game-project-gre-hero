@@ -128,6 +128,8 @@ function guessWord (meaning){
 function checkGameOver () {
   if (hearts == 0) {
     alert(`Your final score is ${points}. Click New Game to play again.`);
+    clearInterval(game);
+    clearCanvas();
     return true;
   } else {
     updateHearts();

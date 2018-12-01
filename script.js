@@ -16,10 +16,9 @@ function updateCanvas(){
   if (y==720) {
     checkGameOver();
   }
-  var myReq = requestAnimationFrame(updateCanvas);
-   //window.requestAnimationFrame(updateCanvas);
+  
 }
- window.requestAnimationFrame(updateCanvas);
+var game = setInterval(updateCanvas, 15);
 
 // refreshing game 
 
@@ -40,6 +39,7 @@ function newGame () {
   updateStreak();
   wordsArray = wordsList;
   getWord();
+  game = setInterval(updateCanvas, 15);
   refreshGame ();
 }
 
