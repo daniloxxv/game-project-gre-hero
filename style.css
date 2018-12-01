@@ -20,11 +20,16 @@ h1 {
   width: 100%;
 }
 
-#startbutton {
+.initialbuttons {
+  width: 80%;
+}
+
+#startbutton, #easybutton, #hardbutton, #normalbutton {
   display: flex;
   justify-self: center;
-  width: 80%;
-  justify-content: center; 
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 2px; 
 }
 
 
