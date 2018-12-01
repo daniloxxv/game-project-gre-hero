@@ -16,8 +16,37 @@ function updateCanvas(){
 }
 window.requestAnimationFrame(updateCanvas);
 
+// refreshing game (testing) BUG: accelerating after each guess;
 
-// buttons 
+function refreshGame () {
+  meanings = [];
+  getWord();
+  updateButtons();
+  y = 0;
+  updateCanvas();
+}
+
+//restart game
+function newGame () {
+  hearts = 3;
+  points = 0;
+  streak = 0;
+  updateScore();
+  resetHearts();
+  updateStreak();
+  wordsArray = wordsList;
+  getWord();
+  refreshGame ();
+}
+
+//new game button
+var startButton = document.getElementById("startbutton");
+startButton.onclick = function () {
+  newGame();
+};
+
+
+// alternative buttons 
 
 var button1 = document.getElementById("button1");
 var button2 = document.getElementById("button2");
@@ -52,8 +81,34 @@ button4.onclick = function () {
 
 // updating hearts
 
+var activeHearts = document.getElementsByClassName("activeheart");
+var heartsCounter = document.getElementById("heartscounter");
+
+
 function updateHearts() {
-  var heartsCounter = document.getElementsByClassName("activeheart");
-  heartsCounter[heartsCounter.length-1].classList.toggle("activeheart");
+  activeHearts[activeHearts.length-1].classList.toggle("activeheart");
 }
 
+function resetHearts() {
+  heartsCounter.innerHTML = '<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>';
+}
+
+//score 
+
+var scoreCounter = document.getElementById("scorecounter");
+
+// update score 
+
+function updateScore () {
+ scoreCounter.innerHTML = points;
+}
+
+//streak
+
+var streakCounter = document.getElementById("streakcounter");
+
+// update streak
+
+function updateStreak () {
+  streakCounter.innerHTML = streak;
+ }

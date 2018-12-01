@@ -20,7 +20,7 @@ h1 {
   width: 100%;
 }
 
-.startbutton {
+#startbutton {
   display: flex;
   justify-self: center;
   width: 80%;
@@ -72,7 +72,7 @@ h2 {
 
  .heart {
   font-size: 4em;
-  
+
  }
 
 
