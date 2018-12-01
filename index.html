@@ -15,22 +15,22 @@
     <div class="row">
     <div class="col-md-3 leftsection">
       <h1>GRE<br>HERO</h1>
-      <button type="button" class="btn btn-primary btn-lg startbutton">New Game</button>
+      <button type="button" class="btn btn-primary btn-lg" id="startbutton">New Game</button>
     </div>
     <div class="col-md-6 canvascontainer">
       <canvas id="canvas" height="680px" width="800px"></canvas>
     </div>
     <div class="col-md-2 sidebar container">
-        <div class="hearts">
+        <div id="heartscounter">
             <span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>
         </div>
       <div class="score">
         <h2>SCORE</h2>
-        <h3>0</h3>
+        <h3 id="scorecounter">0</h3>
       </div>
       <div class="streak">
         <h2>STREAK</h2>
-        <h3>0</h3>
+        <h3 id="streakcounter">0</h3>
       </div>
     </div>
   </div>

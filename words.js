@@ -2,7 +2,8 @@
 var hearts = 3;
 var points = 0;
 var streak = 0;
-var wordsArray = [];
+var wordsList= [];
+var wordsArray = wordsList;
 var chosenObject;
 var chosenWord;
 var meanings = [];
@@ -11,7 +12,7 @@ function Word (word, meaning) {
   this.word = word;
   this.meaning = meaning;
 
-  wordsArray.push(this);
+  wordsList.push(this);
 }
 //adding words//
 
@@ -59,17 +60,17 @@ new Word ("deride", "insult, criticize");
 function getWord() {
   var randomNumber = Math.floor((Math.random() * wordsArray.length));
   chosenObject = wordsArray[randomNumber];
-  wordsArray.slice(randomNumber, 1);
+  wordsArray.splice(randomNumber, 1);
   chosenWord = chosenObject.word.toUpperCase();
-  getMeanings(chosenObject);
+  getMeanings();
 }
 
 //testing getWord
 getWord();
 
 // getting meanings -- currently drawing a new random number in case of duplicity. TODO: consider creating a temporary array of meanings and removing each pick
-function getMeanings (object) {
-  meanings.push(object.meaning);
+function getMeanings () {
+  meanings.push(chosenObject.meaning);
   var randomNumber1, randomNumber2, randomNumber3;
   randomNumber1 = Math.floor((Math.random() * wordsArray.length));
   meanings.push(wordsArray[randomNumber1].meaning);
@@ -108,13 +109,18 @@ function shuffle(array) {
 function guessWord (meaning){
   if (meaning == chosenObject.meaning) {
     points += 10*(streak+1);
+    updateScore ();
     streak++;
+    updateStreak ();
+    refreshGame();
     return true;
     
   } else {
+    checkGameOver();
     hearts--;
     updateHearts();
     streak = 0;
+    updateStreak ();
     return false;
   }
 }
@@ -122,9 +128,13 @@ function guessWord (meaning){
 // check if the game is over
 
 function checkGameOver () {
-  if (hearts < 0) {
+  if (hearts == 0) {
+    alert("play again?");
     return true;
   } else {
+    refreshGame();
     return false;
   }
 }
+
+// 
