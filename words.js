@@ -4,13 +4,13 @@ var hearts = 3;
 var points = 0;
 var multiplier = 10;
 var streak = 0;
-var wordsList= [];
+//var wordsList= [];
 var wordsArray = wordsList;
 var chosenObject;
 var chosenWord;
 var meanings = [];
 
-function Word (word, meaning) {
+/* function Word (word, meaning) {
   this.word = word;
   this.meaning = meaning;
 
@@ -55,7 +55,7 @@ new Word ("misanthrope", "someone who hates people");
 new Word ("paradoxical", "self-contradicting");
 new Word ("venerate", "admire greatly");
 new Word ("deride", "insult, criticize");
-
+ */
 
 //getting word
 

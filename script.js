@@ -4,7 +4,7 @@ var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
 var y = 0;
 function clearCanvas() {
-ctx.clearRect(0,0,700,700);
+ctx.clearRect(0,0,700,800);
 }
 
 function updateCanvas(){
@@ -13,7 +13,7 @@ function updateCanvas(){
   clearCanvas();
   ctx.font = "30px Arial";
   ctx.fillText(chosenWord, 400, y); 
-  if (y==720) {
+  if (y>=548) {
     checkGameOver();
     hearts--;
     updateHearts();
@@ -21,7 +21,6 @@ function updateCanvas(){
     updateStreak();
     refreshGame();
   }
-  //counter = 0;
   window.requestAnimationFrame(updateCanvas);
 }
 window.onload = window.requestAnimationFrame(updateCanvas);
@@ -46,6 +45,7 @@ function newGame () {
   wordsArray = wordsList;
   getWord();
   refreshGame ();
+  updateCanvas();
 }
 
 //new game button
