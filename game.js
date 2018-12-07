@@ -55,7 +55,7 @@ const game = {
             game.meanings = [];
             game.getWord();
             updateButtons();
-            y = 0;
+            y = -15;
         },
     //checking if the game is over
     checkGameOver: function () {
@@ -70,14 +70,14 @@ const game = {
         },
     //starting game
     init: function () {
+        $("#startbutton").prop("disabled", true);
+        game.wordsArray = wordsList; //from words.js
+        game.refreshGame();
         game.hearts = 3;
         game.speed = 1.5;
         game.points = 0;
         game.multiplier = 10;
         game.streak = 0;
         updateAll();
-        $("#startbutton").prop("disabled", true);
-        game.wordsArray = wordsList; //from words.js
-        game.refreshGame();
       }  
 }

@@ -2,7 +2,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
-var y = 0;
+var y = -15;
 function clearCanvas() {
 ctx.clearRect(0,0,700,800);
 }
@@ -12,7 +12,7 @@ function updateCanvas () {
   ctx.font = "30px Arial";
   ctx.fillText(game.chosenWord, 375, y); 
   //checking if the word hit the bottom of the canvas
-  if (y==499) {
+  if (y>=499) {
     game.incorrectWord();
     updateAll();
   };
@@ -33,15 +33,15 @@ $("#startbutton").click(function () {
 });
 // alternative buttons
 function updateButtons () {
+  setTimeout(function(){
   $("#button1").text(game.meanings[0]);
   $("#button2").text(game.meanings[1]);
   $("#button3").text(game.meanings[2]);
-  $("#button4").text(game.meanings[3]);
-  setTimeout(function(){ 
-    $(".alternativebuttons").removeClass("btn-danger");
-    $(".alternativebuttons").removeClass("btn-success");}, 400);
+  $("#button4").text(game.meanings[3]); 
+  $(".alternativebuttons").removeClass("btn-danger");
+  $(".alternativebuttons").removeClass("btn-success");}, 400);
 }
-updateButtons();
+//updateButtons();
 
 //buttons feedback TESTING
 // guessing word
