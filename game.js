@@ -1,10 +1,4 @@
 const game = {
-    //interface functionalities
-    hearts: 3,
-    speed: 2,
-    points: 0,
-    multiplier: 10,
-    streak: 0,
     //list of words from database.js
     wordsArray: wordsList,
     //placeholders for chosen words and meanings
@@ -67,8 +61,9 @@ const game = {
         },
     //checking if the game is over
     checkGameOver: function () {
-            if (game.hearts == 0) {
-            alert("play again?");
+            if (game.hearts <= 0) {
+            disableButtons();
+            $("#startbutton").prop("disabled", false);
             return true;
             } else {
             game.refreshGame();
@@ -78,11 +73,13 @@ const game = {
     //starting game
     init: function () {
         game.hearts = 3;
+        game.speed = 2;
         game.points = 0;
+        game.multiplier = 10;
         game.streak = 0;
+        updateAll();
+        $("#startbutton").prop("disabled", true);
         game.wordsArray = wordsList;
-        game.getWord();
         game.refreshGame();
       }  
-      
 }
