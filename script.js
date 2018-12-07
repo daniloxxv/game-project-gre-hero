@@ -1,152 +1,122 @@
-//canvas
+ //canvas
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
 var y = 0;
 function clearCanvas() {
-ctx.clearRect(0,0,700,700);
+ctx.clearRect(0,0,700,800);
 }
-
-function updateCanvas(){
-
-  y += speed;
+function updateCanvas () {
+  y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(chosenWord, 400, y); 
-  if (y==720) {
-    checkGameOver();
-  }
-  
-}
-var game = setInterval(updateCanvas, 15);
-
-// refreshing game 
-
-function refreshGame () {
-  meanings = [];
-  getWord();
-  updateButtons();
-  y = 0;
+  ctx.fillText(game.chosenWord, 375, y); 
+  //checking if the word hit the bottom of the canvas
+  if (y==499) {
+    game.incorrectWord();
+    updateAll();
+  };
+  window.requestAnimationFrame(updateCanvas);
 }
 
-//restart game
-function newGame () {
-  hearts = 3;
-  points = 0;
-  streak = 0;
-  updateScore();
-  resetHearts();
-  updateStreak();
-  wordsArray = wordsList;
-  getWord();
-  game = setInterval(updateCanvas, 15);
+//starting game
+window.onload = function () {
+  game.init();
+  updateCanvas();
 }
-
 //new game button
-var startButton = document.getElementById("startbutton");
-startButton.onclick = function () {
-  newGame();
-};
 
-
-// alternative buttons 
-
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-
-// updating buttons
-
+$("#startbutton").click(function () {
+  resetHearts();
+  enableButtons();
+  game.init();
+});
+// alternative buttons
 function updateButtons () {
-  button1.innerHTML = meanings[0];
-  button2.innerHTML = meanings[1];
-  button3.innerHTML = meanings[2];
-  button4.innerHTML = meanings[3];
+  $("#button1").text(game.meanings[0]);
+  $("#button2").text(game.meanings[1]);
+  $("#button3").text(game.meanings[2]);
+  $("#button4").text(game.meanings[3]);
+  setTimeout(function(){ 
+    $(".alternativebuttons").removeClass("btn-danger");
+    $(".alternativebuttons").removeClass("btn-success");}, 400);
 }
 updateButtons();
 
 //buttons feedback TESTING
-
-/* function buttonFeedback(button) {
-  if (button.innerHTML == chosenObject.meaning) {
-    button.classlist.toggle("btn-success");
-    button.classlist.toggle("btn-primary");
-  } else {
-    button.classlist.toggle("btn-danger");
-    button.classlist.toggle("btn-primary");
-  }
-} */
- 
-// buttons speed
-
-var easyButton = document.getElementById("easybutton");
-easyButton.onclick = function () {
-  speed = 1;
-  multiplier = 5;
-};
-
-var normalButton = document.getElementById("normalbutton");
-normalButton.onclick = function () {
-  speed = 2;
-  multiplier = 10;
-};
-
-var hardButton = document.getElementById("hardbutton");
-hardButton.onclick = function () {
-  speed = 3;
-  multiplier = 20;
-};
-
 // guessing word
 
-button1.onclick = function () {
-  guessWord(button1.innerHTML);
-};
-button2.onclick = function () { 
-  guessWord(button2.innerHTML);
-};
-button3.onclick = function () { 
-  guessWord(button3.innerHTML);
-};
-button4.onclick = function () { 
-  guessWord(button4.innerHTML);
-};
+$(".alternativebuttons").click(function () { 
+  if ($(this).text() == game.chosenObject.meaning) {
+    $(this).toggleClass("btn-success");
+    //$(this).toggleClass("btn-primary");
+  } else {
+    $(this).toggleClass("btn-danger");
+    //$(this).toggleClass("btn-primary");
+  }
+  game.guessWord($(this).text());
+  updateAll();
+});
 
+ function positiveFeedback() {
+  $(this).toggleClass("btn-success");
+  $(this).toggleClass("btn-primary");
+  } 
+  
+function negativeFeedback() {
+  $(this).toggleClass("btn-danger");
+  $(this).toggleClass("btn-primary");
+  }
+
+console.log($(this).text)
+// difficulty buttons
+
+$("#easybutton").click(function () {
+  game.speed = 1;
+  game.multiplier = 5;
+});
+
+$("#normalbutton").click(function () {
+  game.speed = 1.5;
+  game.multiplier = 10;
+});
+
+$("#hardbutton").click(function () {
+  game.speed = 2;
+  game.multiplier = 20;
+});
+
+
+
+function updateAll () {
+  updateScore();
+  updateStreak();
+}
 
 // updating hearts
 
-var activeHearts = document.getElementsByClassName("activeheart");
-var heartsCounter = document.getElementById("heartscounter");
-
-
 function updateHearts() {
-  hearts--;
-  streak = 0;
-  updateStreak ();
-  activeHearts[activeHearts.length-1].classList.toggle("activeheart");
+  $(".activeheart").last().removeClass("activeheart");
 }
 
 function resetHearts() {
-  heartsCounter.innerHTML = '<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>';
+  $("#heartscounter").html('<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>');
 }
-
-//score 
-
-var scoreCounter = document.getElementById("scorecounter");
 
 // update score 
-
 function updateScore () {
- scoreCounter.innerHTML = points;
+ $("#scorecounter").text(game.points);
 }
-
-//streak
-
-var streakCounter = document.getElementById("streakcounter");
 
 // update streak
 
 function updateStreak () {
-  streakCounter.innerHTML = streak;
+  $("#streakcounter").text(game.streak);
  }
+//disable and enable buttons
+ function disableButtons() {
+  $('.alternativebuttons').prop("disabled", true);
+ }
+ function enableButtons() {
+  $('.alternativebuttons').prop("disabled", false);
+}
