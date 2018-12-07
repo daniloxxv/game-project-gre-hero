@@ -1,4 +1,4 @@
-//canvas
+ //canvas
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
@@ -6,69 +6,37 @@ var y = 0;
 function clearCanvas() {
 ctx.clearRect(0,0,700,800);
 }
-
-function updateCanvas(){
-
-  y += speed;
+function updateCanvas () {
+  y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(chosenWord, 400, y); 
-  if (y>=548) {
-    checkGameOver();
-    hearts--;
-    updateHearts();
-    streak = 0;
-    updateStreak();
-    refreshGame();
-  }
+  ctx.fillText(game.chosenWord, 375, y); 
+  //checking if the word hit the bottom of the canvas
+  if (y>=499) {
+    game.incorrectWord();
+    updateAll();
+  };
   window.requestAnimationFrame(updateCanvas);
 }
-window.onload = window.requestAnimationFrame(updateCanvas);
 
-// refreshing game 
-
-function refreshGame () {
-  meanings = [];
-  getWord();
-  updateButtons();
-  y = 0;
-}
-
-//restart game
-function newGame () {
-  hearts = 3;
-  points = 0;
-  streak = 0;
-  updateScore();
-  resetHearts();
-  updateStreak();
-  wordsArray = wordsList;
-  getWord();
-  refreshGame ();
+//starting game
+window.onload = function () {
+  game.init();
   updateCanvas();
 }
-
 //new game button
-var startButton = document.getElementById("startbutton");
-startButton.onclick = function () {
-  newGame();
-};
 
-
-// alternative buttons 
-
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var button4 = document.getElementById("button4");
-
-// updating buttons
-
+$("#startbutton").click(function () {
+  resetHearts();
+  enableButtons();
+  game.init();
+});
+// alternative buttons
 function updateButtons () {
-  button1.innerHTML = meanings[0];
-  button2.innerHTML = meanings[1];
-  button3.innerHTML = meanings[2];
-  button4.innerHTML = meanings[3];
+  $("#button1").text(game.meanings[0]);
+  $("#button2").text(game.meanings[1]);
+  $("#button3").text(game.meanings[2]);
+  $("#button4").text(game.meanings[3]);
 }
 updateButtons();
 
@@ -84,73 +52,59 @@ updateButtons();
   }
 }
  */
-// buttons speed
+// difficulty buttons
 
-var easyButton = document.getElementById("easybutton");
-easyButton.onclick = function () {
-  speed = 1;
-  multiplier = 5;
-};
+$("#easybutton").click(function () {
+  game.speed = 1;
+  game.multiplier = 5;
+});
 
-var normalButton = document.getElementById("normalbutton");
-normalButton.onclick = function () {
-  speed = 2;
-  multiplier = 10;
-};
+$("#normalbutton").click(function () {
+  game.speed = 1.5;
+  game.multiplier = 10;
+});
 
-var hardButton = document.getElementById("hardbutton");
-hardButton.onclick = function () {
-  speed = 3;
-  multiplier = 20;
-};
+$("#hardbutton").click(function () {
+  game.speed = 2;
+  game.multiplier = 20;
+});
 
 // guessing word
 
-button1.onclick = function () { 
-  
-  guessWord(button1.innerHTML);
-};
-button2.onclick = function () { 
-  guessWord(button2.innerHTML);
-};
-button3.onclick = function () { 
-  guessWord(button3.innerHTML);
-};
-button4.onclick = function () { 
-  guessWord(button4.innerHTML);
-};
+$(".alternativebuttons").click(function () { 
+  game.guessWord(this.innerHTML);
+  updateAll();
+});
 
+function updateAll () {
+  updateScore();
+  updateStreak();
+}
 
 // updating hearts
 
-var activeHearts = document.getElementsByClassName("activeheart");
-var heartsCounter = document.getElementById("heartscounter");
-
-
 function updateHearts() {
-  activeHearts[activeHearts.length-1].classList.toggle("activeheart");
+  $(".activeheart").last().removeClass("activeheart");
 }
 
 function resetHearts() {
-  heartsCounter.innerHTML = '<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>';
+  $("#heartscounter").html('<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>');
 }
-
-//score 
-
-var scoreCounter = document.getElementById("scorecounter");
 
 // update score 
-
 function updateScore () {
- scoreCounter.innerHTML = points;
+ $("#scorecounter").text(game.points);
 }
-
-//streak
-
-var streakCounter = document.getElementById("streakcounter");
 
 // update streak
 
 function updateStreak () {
-  streakCounter.innerHTML = streak;
+  $("#streakcounter").text(game.streak);
  }
+//disable and enable buttons
+ function disableButtons() {
+  $('.alternativebuttons').prop("disabled", true);
+ }
+ function enableButtons() {
+  $('.alternativebuttons').prop("disabled", false);
+}
