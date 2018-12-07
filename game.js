@@ -1,7 +1,7 @@
 const game = {
     //interface functionalities
     hearts: 3,
-    speed: 1,
+    speed: 2,
     points: 0,
     multiplier: 10,
     streak: 0,
@@ -54,6 +54,7 @@ const game = {
     incorrectWord: function () {
         game.checkGameOver();
         game.hearts--;
+        updateHearts();
         game.streak = 0;
         return false;
     },
@@ -82,7 +83,6 @@ const game = {
         game.wordsArray = wordsList;
         game.getWord();
         game.refreshGame();
-        updateCanvas();
       }  
       
 }

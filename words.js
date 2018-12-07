@@ -4,13 +4,13 @@ var hearts = 3;
 var points = 0;
 var multiplier = 10;
 var streak = 0;
-var wordsList= [];
+//var wordsList= [];
 var wordsArray = wordsList;
 var chosenObject;
 var chosenWord;
 var meanings = [];
 
-function Word (word, meaning) {
+/* function Word (word, meaning) {
   this.word = word;
   this.meaning = meaning;
 
@@ -55,7 +55,7 @@ new Word ("misanthrope", "someone who hates people");
 new Word ("paradoxical", "self-contradicting");
 new Word ("venerate", "admire greatly");
 new Word ("deride", "insult, criticize");
-
+ */
 
 //getting word
 
@@ -90,7 +90,7 @@ function getMeanings () {
   shuffle(meanings);
 }
 
-console.log(meanings);
+//console.log(meanings);
 
 //shuffle meanings 
 
@@ -119,6 +119,10 @@ function guessWord (meaning){
     
   } else {
     checkGameOver();
+    hearts--;
+    updateHearts();
+    streak = 0;
+    updateStreak ();
     return false;
   }
 }
@@ -127,12 +131,9 @@ function guessWord (meaning){
 
 function checkGameOver () {
   if (hearts == 0) {
-    alert(`Your final score is ${points}. Click New Game to play again.`);
-    clearInterval(game);
-    clearCanvas();
+    alert("play again?");
     return true;
   } else {
-    updateHearts();
     refreshGame();
     return false;
   }

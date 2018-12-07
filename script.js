@@ -128,9 +128,6 @@ button4.onclick = function () {
 function updateAll () {
   updateScore();
   updateStreak();
-  if (this.meaning != game.chosenObject.meaning) {
-    updateHearts();
-  }
 }
 
 
