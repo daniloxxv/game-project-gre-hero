@@ -555,7 +555,7 @@ telltale
 temperate
 chicanery
 grave
-blas�
+blasé
 exoneration
 hoodwink
 tawdry
@@ -1313,41 +1313,41 @@ Furtive`
 
 var meaningString = `examining one's own thoughts and feelings
 one who loves mankind
-medicine used against a poison or a disease
+medicine used against poison or disease
 to make great efforts, to struggle
-able to use the left hand or the right equally well
+able to use both hands equally well
 a person or thing that precedes, as in a process or job.
-Looking back on past
+Looking back on the past
 one who turns towards himself
 doubtful; uncertain
-government ruled by old people
-make worse; irritate
+a government ruled by old people
+to make worse; irritate
 boastful
 attract, lure
 state of being balanced
 make (pain) easier to bear
 add beauty; decorate
-malicious; evil; having or showing ill will
-Suggest or imply in addition to the precise, literal meaning
+malicious; evil
+Suggest or imply something in addition to the literal meaning
 to hate; to detest
 active; quick-moving
 to make an effort, to try very hard
 wander lose one's way
 restore something to better condition
 course of study
-mix; combine; unite societies
-feeling sleepy half asleep
+mix; combine
+feeling sleepy; half-asleep
 undress
-a person who is attracted to foreign peoples cultures
+a person who is attracted to foreign cultures
 cause or have difficulty in breathing
-succession connected line of
+succession; connected line of
 smell (especially pleasant)
 happening from time to time
 close connection; relationship
 Bold
 made up of different kinds
 strong dislike
-easily injured broken or destroyed
+easily injured, broken or destroyed
 Keen, quick, accurate insight or judgment
 Bequest or inheritance
 cruel killing of a large number of people
@@ -1356,16 +1356,16 @@ process of burning
 making unpure; poorer in quality
 make quiet or calm
 doing or happening something before the right time
-Legal or judicial inquiry, especially before a jury and especially made by a coroner into the cause of someone.s death
-avoided, kept away from
-hide keep secret
+Legal or judicial inquiry, especially before a jury and especially made by a coroner into the cause of someone's death
+avoided; kept away from
+hide; keep secret
 severe suffering
 native
 well-suited; quick-witted
 have a mutual relation
 to complain
 Without preparation or forethought
-rolling backward or forward (not sideways) movement
+rolling backward or forward
 end the existence of/wipe or put out
 fit to be eaten/not poisonous
 to join together
@@ -1395,7 +1395,7 @@ hand or swing loosely
 in a dying state; near death
 go or come up
 fall back again
-the mark * (e.g.. omitted letters)
+the mark * (e.g. omitted letters)
 tale story fibers for knitting
 proud; superior manner of behaviour
 the saving of property from loss
@@ -1564,16 +1564,16 @@ too talkative
 instruct; correct morally
 tending to evade
 person who hates mankind
-formal praise panegyric
+formal praise
 known or understood by very few
-sham; counterfeit; not genuine
+sham; not genuine
 skill (esp. in handling)
 publicly mock or ridicule
 short piece of humorous writing
 out of place; not in harmony or agreement
 causing a feeling of disgust
 make or become pure cultural
-varied; motley; greatly diversified
+varied; greatly diversified
 giving facts to support (statement)
 bitter quarrel over a long period of time
 not easily exhaustible; tirelessness
@@ -1869,7 +1869,7 @@ showing self-control
 legal trickery/false argument
 serious requiring; consideration
 bored with pleasure or dissipation
-set someone clear (e.g.. from blame)
+set someone clear (e.g. from blame)
 trick; mislead
 cheap gaudy showy tacky
 a breakup overthrow sudden disaster
@@ -2234,9 +2234,9 @@ bad-tempered person
 arrangement to give something at death
 to protest object
 auspicious; presenting favorable circumstances
-male bee person who isn't self-employed
+male bee; person who isn't self-employed
 to hinder obstruct or block
-call calling of names
+calling of names
 not yet fully formed; rudimentary; elementary
 projecting; prominent; undesirably noticeable
 scold upbraid
@@ -2397,7 +2397,7 @@ extremely loud and powerful
 to frequently visit
 taking off getting rid of giving up
 bad-tempered person
-A stock of plays, dances, or pieces that a company or a performer knows or is prepared to perform
+A stock of plays, dances or pieces
 not any; no;
 An alloy of zinc and copper used as imitation gold; A cheap imitation
 finical
@@ -2423,9 +2423,9 @@ diminishing or lessening of swelling
 formal praise eulogy
 criticism; anti-aircraft guns
 distracted
-continue doing something without resting
+to continue doing something without resting
 stubborn; unmanageable; intractable
-to be divided or subdivided to branch out
+to be divided or subdivided
 likely to be useful for a purpose
 fertile
 warm or glowing praise eulogy panegyric
@@ -2588,7 +2588,7 @@ mean; contemptible
 adjective
 persevering
 tiring because too long
-beg urgently solicit (of a prostitute)
+beg urgently
 bulge; the protuberance of a cask
 complex
 to awaken or rouse
@@ -2601,7 +2601,7 @@ paint portray
 merry person
 sparkle
 write in scholarly fashion
-without refinement or sensitivity; gross.
+without refinement or sensitivity; gross
 pompous self important
 put something warm (to lessen the pain)
 cowardice a cowardly giving up
@@ -2610,11 +2610,11 @@ in the highest degree
 try to avoid by sophistication
 a hasty escape; flight.
 marked by the characteristics of an earlier period
-to consume (liquids) by drinking; drink
+to consume (liquids) by drinking
 rest; sleep
 performed merely as a routine duty; hasty and superficial
-a position or situation from which there is no escape; deadlock
-physically beautiful; comely.
+a position or situation from which there is no escape
+physically beautiful
 good digestion
 deception
 gigantic

@@ -10,13 +10,13 @@ function updateCanvas () {
   y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(game.chosenWord, 400, y); 
+  ctx.fillText(game.chosenWord, 375, y); 
   //checking if the word hit the bottomm of the canvas
-  if (y>=555) {
+  if (y>=499) {
     game.incorrectWord();
     updateAll();
   };
-window.requestAnimationFrame(updateCanvas);
+  window.requestAnimationFrame(updateCanvas);
 }
 
 //starting game
@@ -28,8 +28,6 @@ window.onload = function () {
 
 $("#startbutton").click(function () {
   resetHearts();
-  updateScore;
-  updateStreak;
   enableButtons();
   game.init();
 });
