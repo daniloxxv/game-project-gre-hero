@@ -1,27 +1,31 @@
-//canvas
+ //canvas
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
 var y = 0;
 function clearCanvas() {
-ctx.clearRect(0,0,700,700);
+ctx.clearRect(0,0,700,800);
 }
 
 function updateCanvas(){
 
-  y += speed;
+  y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(chosenWord, 400, y); 
-  if (y==720) {
-    checkGameOver();
+  ctx.fillText(game.chosenWord, 400, y); 
+  if (y>=548) {
+    game.incorrectWord();
+    updateAll();
   }
-  
+  window.requestAnimationFrame(updateCanvas);
 }
-var game = setInterval(updateCanvas, 15);
+window.onload = function () {
+  game.init();
+  window.requestAnimationFrame(updateCanvas)
+}
 
 // refreshing game 
-
+/*
 function refreshGame () {
   meanings = [];
   getWord();
@@ -39,13 +43,17 @@ function newGame () {
   updateStreak();
   wordsArray = wordsList;
   getWord();
-  game = setInterval(updateCanvas, 15);
-}
+  refreshGame ();
+  updateCanvas();
+} */
 
 //new game button
 var startButton = document.getElementById("startbutton");
 startButton.onclick = function () {
-  newGame();
+  resetHearts();
+  updateScore;
+  updateStreak;
+  game.init();
 };
 
 
@@ -59,59 +67,71 @@ var button4 = document.getElementById("button4");
 // updating buttons
 
 function updateButtons () {
-  button1.innerHTML = meanings[0];
-  button2.innerHTML = meanings[1];
-  button3.innerHTML = meanings[2];
-  button4.innerHTML = meanings[3];
+  button1.innerHTML = game.meanings[0];
+  button2.innerHTML = game.meanings[1];
+  button3.innerHTML = game.meanings[2];
+  button4.innerHTML = game.meanings[3];
 }
 updateButtons();
 
 //buttons feedback TESTING
 
-/* function buttonFeedback(button) {
-  if (button.innerHTML == chosenObject.meaning) {
-    button.classlist.toggle("btn-success");
-    button.classlist.toggle("btn-primary");
+/* function buttonFeedback() {
+  if (this.innerHTML == chosenObject.meaning) {
+    this.classlist.toggle("btn-success");
+    this.classlist.toggle("btn-primary");
   } else {
-    button.classlist.toggle("btn-danger");
-    button.classlist.toggle("btn-primary");
+    this.classlist.toggle("btn-danger");
+    this.classlist.toggle("btn-primary");
   }
-} */
- 
+}
+ */
 // buttons speed
 
 var easyButton = document.getElementById("easybutton");
 easyButton.onclick = function () {
-  speed = 1;
-  multiplier = 5;
+  game.speed = 1;
+  game.multiplier = 5;
 };
 
 var normalButton = document.getElementById("normalbutton");
 normalButton.onclick = function () {
-  speed = 2;
-  multiplier = 10;
+  game.speed = 2;
+  game.multiplier = 10;
 };
 
 var hardButton = document.getElementById("hardbutton");
 hardButton.onclick = function () {
-  speed = 3;
-  multiplier = 20;
+  game.speed = 3;
+  game.multiplier = 20;
 };
 
 // guessing word
 
-button1.onclick = function () {
-  guessWord(button1.innerHTML);
+button1.onclick = function () { 
+  game.guessWord(button1.innerHTML);
+  updateAll();
 };
 button2.onclick = function () { 
-  guessWord(button2.innerHTML);
+  game.guessWord(button2.innerHTML);
+  updateAll();
 };
 button3.onclick = function () { 
-  guessWord(button3.innerHTML);
+  game.guessWord(button3.innerHTML);
+  updateAll();
 };
 button4.onclick = function () { 
-  guessWord(button4.innerHTML);
+  game.guessWord(button4.innerHTML);
+  updateAll();
 };
+
+function updateAll () {
+  updateScore();
+  updateStreak();
+  if (this.meaning != game.chosenObject.meaning) {
+    updateHearts();
+  }
+}
 
 
 // updating hearts
@@ -121,9 +141,6 @@ var heartsCounter = document.getElementById("heartscounter");
 
 
 function updateHearts() {
-  hearts--;
-  streak = 0;
-  updateStreak ();
   activeHearts[activeHearts.length-1].classList.toggle("activeheart");
 }
 
@@ -138,7 +155,7 @@ var scoreCounter = document.getElementById("scorecounter");
 // update score 
 
 function updateScore () {
- scoreCounter.innerHTML = points;
+ scoreCounter.innerHTML = game.points;
 }
 
 //streak
@@ -148,5 +165,5 @@ var streakCounter = document.getElementById("streakcounter");
 // update streak
 
 function updateStreak () {
-  streakCounter.innerHTML = streak;
+  streakCounter.innerHTML = game.streak;
  }
