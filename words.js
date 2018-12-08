@@ -716,7 +716,6 @@ zeal`
 
 var wordsArr = wordString.trim().split(/\n/);
 var meaningArr = meaningString.trim().split(/\n/);
-console.log(meaningArr);
 
 var wordsList = [];
 

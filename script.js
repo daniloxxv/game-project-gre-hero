@@ -2,18 +2,19 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#000000";
-var y = 0;
+var y = -15;
 function clearCanvas() {
-ctx.clearRect(0,0,700,800);
+ctx.clearRect(0,0,500,500);
 }
 function updateCanvas () {
   y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(game.chosenWord, 375, y); 
+  ctx.fillText(game.chosenWord, 180, y); 
   //checking if the word hit the bottom of the canvas
-  if (y>=499) {
+  if (y>=499 && y < 501) {
     game.incorrectWord();
+    showCorrect();
     updateAll();
   };
   window.requestAnimationFrame(updateCanvas);
@@ -33,25 +34,45 @@ $("#startbutton").click(function () {
 });
 // alternative buttons
 function updateButtons () {
+  setTimeout(function(){
   $("#button1").text(game.meanings[0]);
   $("#button2").text(game.meanings[1]);
   $("#button3").text(game.meanings[2]);
-  $("#button4").text(game.meanings[3]);
+  $("#button4").text(game.meanings[3]); 
+  $(".alternativebuttons").removeClass("btn-danger");
+  $(".alternativebuttons").removeClass("btn-success");}, 400);
 }
-updateButtons();
 
-//buttons feedback TESTING
+// guessing word
 
-/* function buttonFeedback() {
-  if (this.innerHTML == chosenObject.meaning) {
-    this.classlist.toggle("btn-success");
-    this.classlist.toggle("btn-primary");
+$(".alternativebuttons").click(function () { 
+  if ($(this).text() == game.chosenObject.meaning) {
+    showCorrect();
   } else {
-    this.classlist.toggle("btn-danger");
-    this.classlist.toggle("btn-primary");
+    $(this).toggleClass("btn-danger");
+    showCorrect();
   }
-}
- */
+  game.guessWord($(this).text());
+  updateAll();
+});
+
+// feedback
+
+  function showCorrect() {
+    if ($("#button1").text() == game.chosenObject.meaning) {
+      $("#button1").toggleClass("btn-success");
+    }
+    else if ($("#button2").text() == game.chosenObject.meaning) {
+      $("#button2").toggleClass("btn-success");
+    }
+    else if ($("#button3").text() == game.chosenObject.meaning) {
+      $("#button3").toggleClass("btn-success");
+    }
+    else if ($("#button4").text() == game.chosenObject.meaning) {
+      $("#button4").toggleClass("btn-success")
+    }
+  }
+
 // difficulty buttons
 
 $("#easybutton").click(function () {
@@ -69,12 +90,7 @@ $("#hardbutton").click(function () {
   game.multiplier = 20;
 });
 
-// guessing word
 
-$(".alternativebuttons").click(function () { 
-  game.guessWord(this.innerHTML);
-  updateAll();
-});
 
 function updateAll () {
   updateScore();
@@ -88,7 +104,7 @@ function updateHearts() {
 }
 
 function resetHearts() {
-  $("#heartscounter").html('<span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span><span class="glyphicon glyphicon-heart heart activeheart"></span>');
+  $(".heart").addClass("activeheart");
 }
 
 // update score 
@@ -108,3 +124,39 @@ function updateStreak () {
  function enableButtons() {
   $('.alternativebuttons').prop("disabled", false);
 }
+
+// audio
+
+var bgMusic = document.getElementById("bgmusic");
+bgMusic.loop = true;
+var correctSound = document.getElementById("correctsound");
+var incorrectSound = document.getElementById("incorrectsound");
+
+// audio control 
+
+var musicOn = document.getElementById("musiccheckbox");
+var soundOn = document.getElementById("soundcheckbox");
+var musicControl = document.getElementById("musiclabel");
+
+// audio functions
+
+
+
+function playCorrectSound () {
+  if (soundOn.checked == true) {
+    correctSound.play();
+  }
+}
+
+function playIncorrectSound () {
+  if (soundOn.checked == true) {
+    incorrectSound.play();
+  }
+}
+
+musicControl.onclick = function () {
+  if (musicOn.checked == true) {
+    bgMusic.play();
+} else {
+  bgMusic.pause();
+}};
