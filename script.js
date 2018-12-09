@@ -13,8 +13,8 @@ function updateCanvas () {
   ctx.fillText(game.chosenWord, 180, y); 
   //checking if the word hit the bottom of the canvas
   if (y>=499 && y < 501) {
-    game.incorrectWord();
     showCorrect();
+    game.incorrectWord();
     updateAll();
   };
   window.requestAnimationFrame(updateCanvas);
