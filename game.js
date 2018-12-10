@@ -74,9 +74,12 @@ const game = {
     init: function () {
         $("#startbutton").prop("disabled", true);
         game.wordsArray = wordsList; //from words.js
-        game.refreshGame();
+        game.meanings = [];
+        game.getWord();
+        refreshButtons();
+        y = -15;
         game.hearts = 3;
-        game.speed = 1.5;
+        game.speed = 1;
         game.points = 0;
         game.multiplier = 10;
         game.streak = 0;

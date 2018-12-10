@@ -1,38 +1,38 @@
 var meaningString = `v. to diminish in intensity
 adj. diverging from the standard type
 v. to reject or renounce
-v. to leave secretly, evading detection
-v. to voluntarily refrain from doing something
+v. to leave secretly
+v. to refrain from doing something
 n. keen judgment and perception
 v. scold or to advise firmly
 v. to contaminate or make impure
 v. to recommend; n. one who advocates
-adj. concerned with the nature of beauty and art
+adj. concerned with beauty and art
 n. fake or artificial behavior
-v. enlarge or increase, esp. wealth, power, reputation
+v. enlarge or increase
 n. promptness and eagerness
-v. to relieve a problem or ease a burden
-v. to combine to or mix together
-adj. unclear; open to multiple interpretations
+v. to relieve a problem
+v. to mix together
+adj. unclear; open to interpretations
 adj. mixed or contradictory
 v. to improve or mitigate a situation
 adj. easily convinced or persuaded
-adj. old-fashioned; out of touch with time
+adj. old-fashioned
 n. comparable
 v. to choose for a position; to bless
 n. an exception or unusual case
 n. strong dislike or hatred
 adj. contrary to the very nature of
-n. state of total disinterest or unenthusiasm
+n. disinterest or unenthusiasm
 v. to satisfy (an appetite, a need)
 adj. chosen without reason or purpose
 adj. secret or known only to a select group
-adj. old-fashioned; no longer in common usage
-adj. difficult, taxing, requiring considerable effort
-adj. exhibiting strong communication skills, well-spoken
-adj. without artifice; natural, untrained
+adj. old-fashioned; no longer used
+adj. difficult, requiring effort
+adj. well-spoken
+adj. natural, untrained
 adj. austere or self-denying
-v. to provide relief; to satisfy a need or appetite
+v. to provide relief; to satisfy
 n. total surprise, shock
 adj. very bold or presumptuous
 adj. severe, unadorned
@@ -41,33 +41,33 @@ v. to assert or allege
 adj. boring, cliché
 v. give a false impression
 adj. gentle, harmless
-adj. prejudiced, displaying partiality
+adj. prejudiced, partial
 v. to shore up or support
 adj. overblown, theatrical
 adj. bold; shameless
-adj. pastoral, rustic, countryfied
-v. flourish, bloom, expand or increase quickly
+adj. pastoral, rustic
+v. expand or increase quickly
 n. loud and chaotic noise
 n. lie or slander
 adj. honest, open
-n. accepted rules; sacred or noble works/scripture; 
-n. ability to perform an action;  amount a container can hold
-adj. mercurial, unpredictable, whimsical
+n. accepted rules; sacred works 
+n. ability to perform an action
+adj. unpredictable, whimsical
 v. to scold or berate strongly
-n. something that speeds up a process or causes action
+n. something that speeds up a process
 adj. corrosive; bitterly sarcastic
 v. to express intense condemnation
 n. someone who feels superior to others
 n. trickery or deception
 adj. ordered by time
-v. to come together from disparate parts
+v. to come together
 adj. clearly laid out and persuasive
 adj. in accordance with, proportional
 adj. captivating; very persuasive
 adj. complete and thorough
 v. to approve or allow
 v. to confuse or astonish
-n. an expert in a particular subject matter area
+n. expert in an area
 adj. significant or memorable
 v. to interpret
 n. utilization (esp. of a resource)
@@ -76,8 +76,8 @@ adj. controversial; involving conflict
 adj. remorseful
 adj. roundabout, not straightforward
 adj. plentiful or abundant
-adj. of or relating to a city; sophisticated
-v. to desire something that does not belong to you
+adj. relating to a city; sophisticated
+v. to desire what belongs to others
 n. cunning; skill
 adj. cowardly 
 n. belief or trust
@@ -86,21 +86,21 @@ n. appropriate behavior or good manners
 n. respect or polite submission
 v. divert or cause to ricochet
 adj. skill; manual dexterity
-v. to describe accurately; to demarcate a boundary
+v. to describe accurately; to demarcate
 v. to object or raise concerns
 v. say negative things about
 v. to mock or ridicule
 adj. unoriginal or uninspiring
 v. to dry out completely
-adj. halfhearted; inconsistent or random
+adj. halfhearted; inconsistent
 n. objectivity or aloofness
 n. a strong factor in an outcome
 n. a rant or angry speech
-adj. educational or with an instructive purpose
+adj. educational
 adj. shy, timid
-n. someone with an amateur interest in something
-n. funeral or mourning lament; sad, slow song
-v. to dispel someone’s illusions about something
+n. amateur; hobbyist
+n. funeral lament; sad, slow song
+v. to dispel someone’s illusions
 v. to perceive
 n. inconsistency
 adj. objective, unbiased
@@ -110,24 +110,24 @@ adj. impartial or cool
 v. to ignore or pay no attention to
 v. to mislead or conceal the truth
 v. to spread
-n. a clash between two elements
-v. to split apart; to follow different paths
-n. the official beliefs of a particular sect or group
+n. clash between two elements
+v. to split apart
+n. the official beliefs of a group
 v. to deceive or fool
 adj. cheerful, enthusiastic, excited
 adj. quirky or unusual
 adj. composed of a variety of styles
 n. effectiveness
-n. sad poem or song in remembrance of someone
+n. sad song of remembrance
 v. to provoke a response
 adj. persuasive and articulate speech
-adj. well-known, respected, distinguished
+adj. well-known, distinguished
 adj. based on evidence
-v. to imitate or attempt to equal in accomplishment
+v. to imitate or follow
 v. to exhaust or drain of energy
 v. to cause or give rise to
 v. intensify, increase, augment
-n. belief that one deserves things one has not earned;
+n. belief that one deserves things
 adj. short-lived or transient
 adj. even-tempered; not given to change
 v. to use ambiguous language to mislead
@@ -135,21 +135,21 @@ adj. incorrect
 adj. learned; wise
 v. avoid or abstain from
 adj. obscure, arcane
-adj. deserving respect, esteem, and admiration
-n. memorial speech for one who has passed
+adj. deserving respect and admiration
+n. memorial speech for the dead
 v. to make worse
-adj. challenging, demanding, grueling
+adj. challenging, demanding
 v. to exonerate or vindicate
 adj. urgent or pressing
 v. to clear of charges of wrongdoing
-v. to elaborate on something in great detail
+v. to elaborate on something in detail
 v. to explain in detail
 n. a thorough explanation; a public show
 adj. irrelevant or superfluous
 v. to make projections about the future
 adj. glib or flippant
-v. to make something easier or simpler
-adj. relying on a fallacy; incorrect/misinformed
+v. to make something easier
+adj. relying on a fallacy; incorrect
 adj. meticulous
 v. to shift without apparent pattern
 v. to foster unrest or discontent
@@ -161,7 +161,7 @@ v. to prod someone into action
 adj. talkative
 adj. socially inept or inappropriate
 adj. relevant to the matter at hand
-adj. talking volubly, but carelessly or insincerely
+adj. talking carelessly or insincerely
 adj. sociable, genial
 n. craftiness and cunning
 adj. cliché, trite, banal
@@ -170,15 +170,15 @@ n. the pursuit of pleasure
 adj. arranged in rank order or hierarchy
 adj. uniform, identical
 n. obvious exaggeration for effect
-n. a person who attacks traditional institutions
-adj. relating to a particular belief system or theory
+n. someone against traditional institutions
+adj. relating to a particular belief system
 adj. about to happen
 adj. unchangeable
-v. to hinder or weaken someone or something
+v. to hinder or weaken
 n. barrier, hindrance, or obstruction
 adj. remaining calm under any circumstance
 adj. unforgiving; relentless
-adj. implied or insinuated without being directly stated
+adj. implied without being directly stated
 n. bad judgment
 adj. disrespectful
 adj. by accident or unintentional
@@ -187,7 +187,7 @@ adj. indeterminate or unresolved
 adj. owing money or gratitude to someone
 adj. cannot be made tired
 adj. lazy; idle
-v. to conclude from implicit evidence (as opposed to explicit facts)
+v. to conclude from implicit evidence
 adj. naïve or innocent
 adj. harmful or hostile
 adj. harmless
@@ -213,14 +213,14 @@ adj. clear and coherent
 adj. full of light
 n. generosity and nobility of spirit
 adj. clumsy, awkward, inept
-adj. evil or harmful; v. to speak ill about someone
+adj. evil or harmful
 adj. easily influenced
 n. an unorthodox person or rebel
 n. untruthfulness, dishonesty
 adj. easily changeable, fickle
 adj. paying close attention to detail
 n. person who hates humanity
-v. to improve a painful, unpleasant situation
+v. to improve an unpleasant situation
 adj. not overly showy; humble
 v. placate
 n. boredom and repetition
@@ -230,11 +230,11 @@ adj. inexperienced or gullible
 adj. just beginning or in the early stages
 v. to abandon or leave uncared-for
 adj. confused and baffled
-n. fame for doing something negative or criminal
+n. fame
 n. subtle shades of difference
 adj. stubborn, obstinate
-adj. not well-known; v. to cover something up
-adj. overly helpful in a way that is disingenuous
+adj. not well-known; v. to cover up
+adj. overly helpful in a disingenuous way
 adj. stubborn, uncompromising
 v. to prevent
 v. to block or obstruct
@@ -244,15 +244,15 @@ adj. relating to smell or the sense of smell
 n. the quality or state of being all-knowing
 adj. difficult or burdensome
 adj. not see-through; blocking light
-n. the act of taking opportunities without second thoughts
+n. taking opportunities without second thoughts
 n. criticism or condemnation
 v. to swing back and forth
-adj. overly showy in a way that is gaudy or vulgar
+adj. overly showy in a vulgar way
 v. to overtake or outrun
 v. to appear more notable than
 adj. attentive to detail, meticulous
 adj. incomplete
-n. a devoted supporter of a group, cause, or person
+n. a devoted supporter of a group or cause
 adj. blatant, obvious
 n. scarcity, poverty
 adj. overly concerned with irrelevant detail
@@ -271,19 +271,19 @@ v. to calm, esp. an angry or upset person
 adj. easily shaped or molded
 n. a trite or cliché statement
 adj. believable, reasonable
-n. a surplus or overabundance of something
+n. a surplus or overabundance
 v. to fall quickly and far
 v. to cause a sharp division
-adj. angry, hostile, harshly critical
+adj. controversial
 adj. practical
 adj. uncertain or unstable
 adj. went before
 v. to cause
 n. a forerunner; predecessor
-adj. knowing things before they happen, prophetic
-adj. overly familiar; invades social boundaries
+adj. prophetic
+adj. invading social boundaries
 v. to succeed; to overcome an opponent
-v. to evade or deceive without outright lying
+v. to deceive without lying
 adj. untouched, clean, pure
 n. integrity and honor
 n. a reckless spender
