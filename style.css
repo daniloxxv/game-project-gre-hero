@@ -1,5 +1,5 @@
 
- .leftsection {
+ #leftsection {
   justify-content: center;  
   flex-wrap: wrap;
 }
@@ -32,7 +32,7 @@ h1 {
 .canvascontainer {
   height: 450px;
   margin-bottom: 0px; 
-  margin-top: 5px; 
+  margin-top: 5px;
   
 }
 
@@ -96,7 +96,7 @@ h2 {
   justify-content: space-around;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 700px) {
 
   #button1, #button2, #button3, #button4 {
     font-size: 0.8rem;  
@@ -106,7 +106,7 @@ h2 {
     display: block !important;
     position: fixed;
     top: 0px;
-    right: 70px;
+    right: 10px;
   }
   .heart {
     font-size: 0.8rem;
@@ -121,13 +121,34 @@ h2 {
     display: block !important;
     position: fixed;
     top: 35px;
-    right: 70px;
+    right: 10px;
   }
 
   .streak {
     display: block !important;
     position: fixed;
     top: 70px;
-    right: 70px;
+    right: 10px;
+  }
+
+#titlemobile {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+#startbuttonmobile {
+  position: fixed;
+  top: 35px;
+  left: 5px;
+  padding: 5px;
+  font-size: 0.8rem;
+}
+
+}
+@media (max-width: 900px) {
+  h1 {
+    font-size: 3rem;
   }
 }

@@ -10,7 +10,7 @@ function updateCanvas () {
   y += game.speed;
   clearCanvas();
   ctx.font = "30px Arial";
-  ctx.fillText(game.chosenWord, 180, y); 
+  ctx.fillText(game.chosenWord, 130, y); 
   //checking if the word hit the bottom of the canvas
   if (y>=449 && y < 451) {
     showCorrect();
@@ -28,6 +28,12 @@ window.onload = function () {
 //new game button
 
 $("#startbutton").click(function () {
+  resetHearts();
+  enableButtons();
+  game.init();
+});
+
+$("#startbuttonmobile").click(function () {
   resetHearts();
   enableButtons();
   game.init();
@@ -144,6 +150,7 @@ var musicOn = document.getElementById("musiccheckbox");
 var soundOn = document.getElementById("soundcheckbox");
 var musicControl = document.getElementById("musiclabel");
 
+
 // audio functions
 
 function playCorrectSound () {
@@ -157,7 +164,6 @@ function playIncorrectSound () {
     incorrectSound.play();
   }
 }
-
 musicControl.onclick = function () {
   if (musicOn.checked == true) {
     bgMusic.play();

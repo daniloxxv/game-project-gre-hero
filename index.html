@@ -13,7 +13,7 @@
 <body>
   <section class="main">  
     <div class="row">
-    <div class="d-none d-md-flex d-lg-flex d-xl-flex col-md-3 col-lg-3 col-xl-3 leftsection">
+    <div class="d-none d-md-flex d-lg-flex d-xl-flex col-md-3 col-lg-3 col-xl-3" id = "leftsection">
       <h1>GRE<br>HERO</h1>
       <div class="initialbuttons">
       <button type="button" class="btn btn-primary btn-lg" id="startbutton">New Game</button>
@@ -26,7 +26,7 @@
     </div>
     </div>
     <div class="col-md-6 col-sm-10 col-xs-10 canvascontainer d-flex justify-content-center">
-    <canvas id="canvas" height="450px" width="500px"></canvas>
+    <canvas id="canvas" height="450px" width="400px"></canvas>
     </div>
     <div class="col-sm-1 col-xs-1 col-md-3 sidebar container">
         <div id="heartscounter">
@@ -51,6 +51,10 @@
       <button type="button" class="btn btn-primary btn-lg btn-block alternativebuttons" id="button4">Button 4</button>
     </div>
   </section>
+  <div class="d-lg-none d-xl-none d-md-none">
+      <h1 id="titlemobile">GRE HERO</h1>
+      <button type="button" class="btn btn-primary btn-lg" id="startbuttonmobile">New Game</button>
+  </div>
   <audio src="sound/POL-infinity-short.wav" id="bgmusic"></audio>
   <audio src="sound/NFF-good-tip-high.wav" id="correctsound"></audio>
   <audio src="sound/NFF-metal-clunk.wav" id="incorrectsound"></audio>
