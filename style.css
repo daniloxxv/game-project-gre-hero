@@ -110,6 +110,13 @@ h2 {
   justify-content: space-around;
 }
 
+@media (max-width: 320px) {
+  .canvascontainer {
+    max-width: 320px;
+    height: 350px;
+  }
+}
+
 @media (max-width: 700px) {
 
   #button1, #button2, #button3, #button4 {
@@ -152,10 +159,6 @@ h2 {
   font-size: 1rem;
   font-weight: 700;
 }
-
-#startbutton {
-  display: block !important;
-}
 #startbuttonmobile {
   position: fixed;
   top: 35px;
@@ -177,13 +180,14 @@ h2 {
 }
 
 #errorslist {
-  height: 360px;
+  height: 240px;
   width: 300px;
-  margin-left: 20px;
+  margin-left: 0px;
+  padding-left: 50px;
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 0px;
-  padding-top: 100px;
+  padding-top: 20px;
   background-color: white;
   text-align: left;
 }

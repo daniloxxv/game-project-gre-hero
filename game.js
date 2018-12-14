@@ -99,8 +99,10 @@ const game = {
             if (game.hearts <= 0) {
             disableButtons();
             game.updateHighScore();
+            game.chosenWord = "";
             displayErrorsList ();
             $("#startbutton").prop("disabled", false);
+            $("#startbuttonmobile").prop("disabled", false);
             return true;
             } else {
             game.refreshGame();
@@ -110,6 +112,7 @@ const game = {
     //starting game
     init: function () {
         $("#startbutton").prop("disabled", true);
+        $("#startbuttonmobile").prop("disabled", true);
         game.wordsArray = wordsList; //from words.js
         game.meanings = [];
         game.getWord();

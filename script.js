@@ -89,7 +89,7 @@ $(".alternativebuttons").click(function () {
   }
 //build and show post-game feedback
 function displayErrorsList () {
-$("#errorslist").html(`<h2>Thanks for playing!</h2> <h3>Here are the words you got wrong:</h3><ul><li><h4>${game.listErrors[0]}</h4></li><li><h4>${game.listErrors[1]}</h4></li><li><h4>${game.listErrors[2]}</h4></li><li><h4>${game.listErrors[3]}</h4></li></ul><h3>HIGH SCORE: ${game.highScore}`)
+$("#errorslist").html(`<h2>Thanks for playing!</h2> <h3>Words to review:</h3><ul><li><h4>${game.listErrors[0]}</h4></li><li><h4>${game.listErrors[1]}</h4></li><li><h4>${game.listErrors[2]}</h4></li><li><h4>${game.listErrors[3]}</h4></li></ul><h3><b>HIGH SCORE: ${game.highScore}</b>`)
 $("#errorslist").removeClass("d-none");
 }
 
