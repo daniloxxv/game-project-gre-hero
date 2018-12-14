@@ -82,11 +82,11 @@ n. cunning; skill
 adj. cowardly 
 n. belief or trust
 adj. gullible, easiy fooled
-n. appropriate behavior or good manners
+n. appropriate behavior
 n. respect or polite submission
 v. divert or cause to ricochet
-adj. skill; manual dexterity
-v. to describe accurately; to demarcate
+n. skill; dexterity
+v. to describe; to demarcate
 v. to object or raise concerns
 v. say negative things about
 v. to mock or ridicule
@@ -147,7 +147,7 @@ v. to explain in detail
 n. a thorough explanation; a public show
 adj. irrelevant or superfluous
 v. to make projections about the future
-adj. glib or flippant
+adj. amusing; not serious
 v. to make something easier
 adj. relying on a fallacy; incorrect
 adj. meticulous
@@ -203,7 +203,7 @@ adj. bold and adventurous
 adj. ingrained, habitual
 adj. indestructible, impervious to harm
 adj. irritable, testy, touchy
-adj. wishy-washy, hesitant
+adj. hesitant
 adj. taciturn, reserved, succinct
 v. to praise
 adj. praiseworthy
@@ -272,7 +272,7 @@ adj. easily shaped or molded
 n. a trite or cliché statement
 adj. believable, reasonable
 n. a surplus or overabundance
-v. to fall quickly and far
+v. to fall quickly
 v. to cause a sharp division
 adj. controversial
 adj. practical
@@ -300,7 +300,7 @@ v. to bring into harmony
 adj. arcane or obscure
 v. to rebut or disprove
 adj. never stopping, constant
-adj. relating to the topic or issue at hand
+adj. relating to the topic at hand
 v. to scold or express criticism
 v. to renounce or disown
 v. to take back an offer or statement
@@ -321,7 +321,7 @@ adj. scattered or scarce
 adj. appearing true but actually false
 adj. occasional or scattered
 adj. fake or false
-adj. calm and dependable
+adj. calm; unemotional
 adj. open to personal interpretation
 v. to give evidence of something
 adj. meant to defy institutions or norms

@@ -121,7 +121,7 @@ h2 {
 
   #button1, #button2, #button3, #button4 {
     font-size: 0.8rem;  
-    padding: 1px;}
+    padding: 5px;}
 
   #heartscounter {
     display: block !important;
@@ -174,20 +174,21 @@ h2 {
   padding: 5px;
   font-size: 0.65rem;
   width: 75px;
+  box-shadow: none;
 }
 .canvascontainer {
   max-width: 350px;
 }
 
 #errorslist {
-  height: 240px;
+  height: 260px;
   width: 300px;
   margin-left: 0px;
   padding-left: 50px;
   position: fixed;
   top: 120px;
   left: 0px;
-  padding-top: 20px;
+  padding-top: 0px;
   background-color: white;
   text-align: left;
 }

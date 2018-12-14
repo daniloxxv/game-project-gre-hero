@@ -1,8 +1,21 @@
 const game = {
-    //placeholders for chosen words and meanings
-    chosenObject: {},
-    chosenWord: "",
-    meanings: [],
+    //start game
+    init: function () {
+        $("#startbutton").prop("disabled", true);
+        $("#startbuttonmobile").prop("disabled", true);
+        game.wordsArray = wordsList; //from words.js
+        game.meanings = [];
+        game.listErrors = [];
+        game.getWord();
+        refreshButtons();
+        y = -15; //sets word position at the very top of the canvas
+        game.hearts = 3;
+        game.speed = 1;
+        game.points = 0;
+        game.multiplier = 10;
+        game.streak = 0;
+        updateAll();
+      },  
     //method for getting new word
     getWord: function () {
                 var randomNumber = Math.floor((Math.random() * game.wordsArray.length));
@@ -11,28 +24,23 @@ const game = {
                 game.chosenWord = game.chosenObject.word.toUpperCase();
                 game.getMeanings();
                 },
-    //pushing meaning of chosen word and three others into an array
+    //push meaning of chosen word and three other unique meanings into an array
     getMeanings: function () {
             game.meanings.push(game.chosenObject.meaning);
             var meaning1 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
             game.meanings.push(meaning1)
             var meaning2 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
-            if (meaning2 != meaning1) {
-                game.meanings.push(meaning2)
-            } else {
+            while (meaning2 == meaning1) {
                 meaning2 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
-                game.meanings.push(meaning2)
-            }
+            };
+            game.meanings.push(meaning2);
             var meaning3 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
-            if (meaning3 != meaning1 && meaning3 != meaning2) {
-                game.meanings.push(meaning3)
-            } else {
-                meaning3 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
-                game.meanings.push(meaning3)
-            }
+            while (meaning3 == meaning1 || meaning3 == meaning2) {
+                meaning3 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;}
+            game.meanings.push(meaning3)
             game.shuffle(game.meanings);
           },
-    //shuffling meanings
+    //shuffle meanings
     shuffle: function (array) {
             var currentIndex = array.length, temporaryValue, randomIndex;
             while (0 !== currentIndex) {
@@ -77,15 +85,16 @@ const game = {
     },
     //calculate high score
     highScore: localStorage.getItem('highscore') || 0,
+
     updateHighScore: function () {
     if (game.points > game.highScore) {
         game.highScore = game.points;   
         localStorage.setItem('highscore', JSON.stringify(game.highScore)) }
     },
 
-    //refreshing game
+    //refresh game
     refreshGame: function () {
-            if (game.wordsArray.length === 0) {
+            if (game.wordsArray.length === 0) { //to reset word list in the unlikely event that the user guesses all 350 words
                 game.wordsArray = wordsList;
             };
             game.meanings = [];
@@ -93,13 +102,12 @@ const game = {
             updateButtons();
             y = -15;
         },
-    //checking if the game is over
+    //check if the game is over
     checkGameOver: function () {
             if (game.hearts <= 0) {
             disableButtons();
             game.updateHighScore();
-            game.chosenWord = "";
-            y = 999;
+            y = 999; //to remove the word from the canvas and avoid audio feedback
             displayErrorsList ();
             $("#startbutton").prop("disabled", false);
             $("#startbuttonmobile").prop("disabled", false);
@@ -108,22 +116,5 @@ const game = {
             game.refreshGame();
             return false;
             }
-        },
-    //starting game
-    init: function () {
-        $("#startbutton").prop("disabled", true);
-        $("#startbuttonmobile").prop("disabled", true);
-        game.wordsArray = wordsList; //from words.js
-        game.meanings = [];
-        game.listErrors = [];
-        game.getWord();
-        refreshButtons();
-        y = -15;
-        game.hearts = 3;
-        game.speed = 1;
-        game.points = 0;
-        game.multiplier = 10;
-        game.streak = 0;
-        updateAll();
-      }  
+        }
 }
