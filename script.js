@@ -9,8 +9,8 @@ ctx.clearRect(0,0,500,450);
 function updateCanvas () {
   y += game.speed;
   clearCanvas();
-  ctx.font = "30px Arial";
-  ctx.fillText(game.chosenWord, 130, y); 
+  ctx.font = "24px 'Lato'";
+  ctx.fillText(game.chosenWord, 170-game.chosenWord.length*5, y); 
   //checking if the word hit the bottom of the canvas
   if (y>=449 && y < 451) {
     showCorrect();
@@ -30,12 +30,14 @@ window.onload = function () {
 $("#startbutton").click(function () {
   resetHearts();
   enableButtons();
+  hideErrorsList ();
   game.init();
 });
 
 $("#startbuttonmobile").click(function () {
   resetHearts();
   enableButtons();
+  hideErrorsList();
   game.init();
 });
 
@@ -85,6 +87,17 @@ $(".alternativebuttons").click(function () {
       $("#button4").addClass("btn-success")
     }
   }
+//build and show post-game feedback
+function displayErrorsList () {
+$("#errorslist").html(`<h2>Thanks for playing!</h2> <h3>Words to review:</h3><ul><li><h4>${game.listErrors[0]}</h4></li><li><h4>${game.listErrors[1]}</h4></li><li><h4>${game.listErrors[2]}</h4></li><li><h4>${game.listErrors[3]}</h4></li></ul><h3><b>HIGH SCORE: ${game.highScore}</b>`)
+$("#errorslist").removeClass("d-none");
+}
+
+//hide errors list
+
+function hideErrorsList () {
+  $("#errorslist").addClass("d-none");
+  }
 
 //disable and enable buttons
 function disableButtons() {
@@ -111,12 +124,24 @@ $("#hardbutton").click(function () {
   game.multiplier = 20;
 });
 
-// updating hearts
+$("#difficultymobile").click(function () {
+  if ($("#difficultymobile").text() === "Hard Mode") {
+  game.speed = 2;
+  game.multiplier = 20;
+  $("#difficultymobile").text("Normal Mode");} 
+  else {
+  game.speed = 1;
+  game.multiplier = 10;
+  $("#difficultymobile").text("Hard Mode");
+  }
+});
+
+
+// update and reset hearts
 
 function updateHearts() {
   $(".activeheart").last().removeClass("activeheart");
 }
-
 function resetHearts() {
   $(".heart").addClass("activeheart");
 }
@@ -170,3 +195,5 @@ musicControl.onclick = function () {
 } else {
   bgMusic.pause();
 }};
+
+console.log(game.listErrors)

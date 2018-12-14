@@ -714,8 +714,8 @@ volatile
 whimsical
 zeal`
 
-var wordsArr = wordString.trim().split(/\n/);
-var meaningArr = meaningString.trim().split(/\n/);
+var wordsArr = wordString.split(/\n/);
+var meaningArr = meaningString.split(/\n/);
 
 var wordsList = [];
 
