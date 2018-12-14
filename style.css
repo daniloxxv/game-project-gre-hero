@@ -78,7 +78,21 @@ h2 {
 
  }
 
+#errorslist {
+  text-align: center;
+  margin-left: 25%;
+  height: 470px;
+  position: fixed;
+  top: 0px;
+  padding-top: 150px;
+  background-color: white;
+  justify-self: center;
+  justify-content: center;
+}
 
+#errorslist ul {
+  list-style-type: none;
+}
 
  .buttonscontainer {
    margin-top: 10px;
@@ -138,6 +152,10 @@ h2 {
   font-size: 1rem;
   font-weight: 700;
 }
+
+#startbutton {
+  display: block !important;
+}
 #startbuttonmobile {
   position: fixed;
   top: 35px;
@@ -146,8 +164,38 @@ h2 {
   font-size: 0.8rem;
 }
 
+#difficultymobile {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  padding: 5px;
+  font-size: 0.65rem;
+  width: 75px;
+}
 .canvascontainer {
   max-width: 350px;
+}
+
+#errorslist {
+  height: 360px;
+  width: 300px;
+  margin-left: 20px;
+  position: fixed;
+  top: 100px;
+  left: 0px;
+  padding-top: 100px;
+  background-color: white;
+  text-align: left;
+}
+
+
+#errorslist h2, #errorslist h3 {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+#errorslist h4 {
+  font-size: 0.9rem !important;
 }
 
 }

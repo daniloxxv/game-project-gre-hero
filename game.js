@@ -14,7 +14,9 @@ const game = {
     //pushing meaning of chosen word and three others into an array
     getMeanings: function () {
             game.meanings.push(game.chosenObject.meaning);
-            for (var i = 0; i < 3; i++) {game.meanings.push(game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning);}
+            for (var i = 0; i < 3; i++) {
+                game.meanings.push(game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning);
+                }
             game.shuffle(game.meanings);
           },
     //shuffling meanings
@@ -46,12 +48,29 @@ const game = {
     },
     incorrectWord: function () {
         playIncorrectSound();
+        game.updateErrors();
         game.checkGameOver();
         game.hearts--;
         updateHearts();
         game.streak = 0;
         return false;
     },
+
+    //list mistakes
+    listErrors: [],
+    updateErrors: function () {
+        if (game.listErrors.length < 4) {
+        game.listErrors.push(`${game.chosenWord} - ${game.chosenObject.meaning}`)
+        }
+    },
+    //calculate high score
+    highScore: localStorage.getItem('highscore') || 0,
+    updateHighScore: function () {
+    if (game.points > game.highScore) {
+        game.highScore = game.points;   
+        localStorage.setItem('highscore', JSON.stringify(game.highScore)) }
+    },
+
     //refreshing game
     refreshGame: function () {
             game.meanings = [];
@@ -63,6 +82,8 @@ const game = {
     checkGameOver: function () {
             if (game.hearts <= 0) {
             disableButtons();
+            game.updateHighScore();
+            displayErrorsList ();
             $("#startbutton").prop("disabled", false);
             return true;
             } else {
