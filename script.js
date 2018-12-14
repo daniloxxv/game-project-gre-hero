@@ -12,7 +12,7 @@ function updateCanvas () {
   ctx.font = "24px 'Lato'";
   ctx.fillText(game.chosenWord, 170-game.chosenWord.length*5, y); 
   //checking if the word hit the bottom of the canvas
-  if (y>=449 && y < 451) {
+  if (y>=459 && y < 461) {
     showCorrect();
     game.incorrectWord();
     updateAll();
