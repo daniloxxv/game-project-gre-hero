@@ -204,8 +204,60 @@ h2 {
 }
 
 }
-@media (max-width: 1024px) {
+@media (max-width: 1025px) {
   h1 {
-    font-size: 4rem;
+    font-size: 3.8rem;
+  }
+
+  #errorslist {
+    height: 260px;
+    width: 450px;
+    margin-left: 0px;
+    position: fixed;
+    top: 150px;
+    left: 170px;
+    padding-top: 0px;
+    background-color: white;
+    text-align: center;
+  }
+
+  #button1, #button2, #button3, #button4 {
+    font-size: 0.8rem;  
+    padding: 10px;
+  }
+
+  #heartscounter {
+    position: fixed;
+    top: 15px;
+    right: 40px;
+  }
+  .heart {
+    font-size: 1rem;
+  }
+
+  h2, h3 {
+    font-size: 1rem;
+    text-align: right;
+  }
+
+  .score {
+    position: fixed;
+    top: 50px;
+    right: 40px;
+  }
+
+  .streak {
+    position: fixed;
+    top: 100px;
+    right: 40px;
+  }
+
+  #errorslist h2, #errorslist h3 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  #errorslist h4 {
+    font-size: 1rem !important;
   }
 }
