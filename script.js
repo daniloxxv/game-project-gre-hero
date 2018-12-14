@@ -195,5 +195,3 @@ musicControl.onclick = function () {
 } else {
   bgMusic.pause();
 }};
-
-console.log(game.listErrors)
