@@ -99,6 +99,7 @@ const game = {
             disableButtons();
             game.updateHighScore();
             game.chosenWord = "";
+            y = 999;
             displayErrorsList ();
             $("#startbutton").prop("disabled", false);
             $("#startbuttonmobile").prop("disabled", false);
