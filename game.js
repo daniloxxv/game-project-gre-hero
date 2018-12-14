@@ -70,7 +70,6 @@ const game = {
     },
 
     //list mistakes
-    listErrors: [],
     updateErrors: function () {
         if (game.listErrors.length < 4) {
         game.listErrors.push(`${game.chosenWord} - ${game.chosenObject.meaning}`)
@@ -115,6 +114,7 @@ const game = {
         $("#startbuttonmobile").prop("disabled", true);
         game.wordsArray = wordsList; //from words.js
         game.meanings = [];
+        game.listErrors = [];
         game.getWord();
         refreshButtons();
         y = -15;
