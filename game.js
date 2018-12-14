@@ -73,6 +73,9 @@ const game = {
 
     //refreshing game
     refreshGame: function () {
+            if (game.wordsArray.length === 0) {
+                game.wordsArray = wordsList;
+            };
             game.meanings = [];
             game.getWord();
             updateButtons();
