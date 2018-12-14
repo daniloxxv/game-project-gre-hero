@@ -7,14 +7,14 @@ const game = {
         game.meanings = [];
         game.listErrors = [];
         game.getWord();
-        refreshButtons();
-        y = -15; //sets word position at the very top of the canvas
+        buttons.refreshButtons();
+        canvas.y = -15; //sets word position at the very top of the canvas
         game.hearts = 3;
         game.speed = 1;
         game.points = 0;
         game.multiplier = 10;
         game.streak = 0;
-        updateAll();
+        screen.updateAll();
       },  
     //method for getting new word
     getWord: function () {
@@ -72,7 +72,7 @@ const game = {
         game.updateErrors();
         game.checkGameOver();
         game.hearts--;
-        updateHearts();
+        screen.updateHearts();
         game.streak = 0;
         return false;
     },
@@ -99,16 +99,16 @@ const game = {
             };
             game.meanings = [];
             game.getWord();
-            updateButtons();
-            y = -15;
+            buttons.updateButtons();
+            canvas.y = -15;
         },
     //check if the game is over
     checkGameOver: function () {
             if (game.hearts <= 0) {
-            disableButtons();
+            buttons.disableButtons();
             game.updateHighScore();
-            y = 999; //to remove the word from the canvas and avoid audio feedback
-            displayErrorsList ();
+            canvas.y = 999; //to remove the word from the canvas and avoid audio feedback
+            screen.displayErrorsList ();
             $("#startbutton").prop("disabled", false);
             $("#startbuttonmobile").prop("disabled", false);
             return true;

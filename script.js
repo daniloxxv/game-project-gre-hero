@@ -1,82 +1,74 @@
- //canvas
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#000000";
-var y = -15;
-function clearCanvas() {
-ctx.clearRect(0,0,500,450);
-}
-function updateCanvas () {
-  y += game.speed;
-  clearCanvas();
-  ctx.font = "24px 'Lato'";
-  ctx.fillText(game.chosenWord, 170-game.chosenWord.length*5, y); 
+ //canvas object
+
+const canvas = {
+  canvas: document.getElementById("canvas"),
+  ctx: this.canvas.getContext("2d"),
+  clearCanvas: function () {
+    canvas.ctx.clearRect(0, 0, 350, 450)
+  },
+  updateCanvas: function () {
+    canvas.y += game.speed;
+    canvas.clearCanvas();
+    canvas.ctx.fillStyle = "#000000"
+    canvas.ctx.font = "24px 'Lato'";
+    canvas.ctx.fillText(game.chosenWord, 170-game.chosenWord.length*5, canvas.y); 
+    canvas.checkWord();
+    window.requestAnimationFrame(canvas.updateCanvas); //updating canvas and calling the function again
+  },
   //checking if the word hit the bottom of the canvas
-  if (y>=459 && y < 461) {
-    showCorrect();
-    game.incorrectWord();
-    updateAll();
-  }; 
-  window.requestAnimationFrame(updateCanvas); //updating canvas and calling the function again
+  checkWord: function () {
+    if (canvas.y>=459 && canvas.y < 461) {
+      buttons.showCorrect();
+      game.incorrectWord();
+      screen.updateAll();
+  }
 }
-
-//starting game
-window.onload = function () {
-  game.init();
-  updateCanvas();
 }
-//new game button
-
-$("#startbutton").click(function () {
-  resetHearts();
-  enableButtons();
-  hideErrorsList ();
+//buttons object
+const buttons = {
+  newGame: $("#startbutton").click(function () {
+  screen.resetHearts();
+  buttons.enableButtons();
+  screen.hideErrorsList ();
   game.init();
-});
+  }),
 
-$("#startbuttonmobile").click(function () {
-  resetHearts();
-  enableButtons();
-  hideErrorsList();
+  newGameMobile: $("#startbuttonmobile").click(function () {
+  screen.resetHearts();
+  buttons.enableButtons();
+  screen.hideErrorsList();
   game.init();
-});
-
-//refreshing buttons
-
-function refreshButtons () {
+}),
+//refresh button text
+  refreshButtons: function () {
   $(".alternativebuttons").removeClass("btn-danger");
   $(".alternativebuttons").removeClass("btn-success");
   $("#button1").text(game.meanings[0]);
   $("#button2").text(game.meanings[1]);
   $("#button3").text(game.meanings[2]);
   $("#button4").text(game.meanings[3]); 
-  }
-// alternative buttons (with feedback)
-function updateButtons () {
+  },
+//update buttons
+  updateButtons: function () {
   setTimeout(function(){
-  refreshButtons ();
- }, 600);
-}
-
-// guessing word
-
-$(".alternativebuttons").click(function () { 
+    buttons.refreshButtons ();
+    }, 600);
+   },
+// guess word
+guess: $(".alternativebuttons").click(function () { 
   if ($(this).text() == game.chosenObject.meaning) {
-    showCorrect();
+    buttons.showCorrect();
   } else {
     $(this).addClass("btn-danger");
-    showCorrect();
+    buttons.showCorrect();
   }
   game.guessWord($(this).text());
-  updateAll();
-});
-
+  screen.updateAll();
+}),
 // feedback
-
-  function showCorrect() {
+  showCorrect: function () {    
     if ($("#button1").text() == game.chosenObject.meaning) {
-      $("#button1").addClass("btn-success");
-    }
+    $("#button1").addClass("btn-success");}
     else if ($("#button2").text() == game.chosenObject.meaning) {
       $("#button2").addClass("btn-success");
     }
@@ -86,112 +78,76 @@ $(".alternativebuttons").click(function () {
     else if ($("#button4").text() == game.chosenObject.meaning) {
       $("#button4").addClass("btn-success")
     }
-  }
+  },
+//disable alternative buttons on game over
+  disableButtons: function () {
+    $('.alternativebuttons').prop("disabled", true);
+  },
+  //enable alternative buttons on new game
+  enableButtons: function () {
+    $('.alternativebuttons').prop("disabled", false);
+  },
+  // difficulty buttons
+  easyMode: $("#easybutton").click(function () {
+    game.speed = 0.5;
+    game.multiplier = 5;
+  }),
+  normalMode: $("#normalbutton").click(function () {
+    game.speed = 1;
+    game.multiplier = 10;
+  }),
+  hardMode: $("#hardbutton").click(function () {
+    game.speed = 2;
+    game.multiplier = 20;
+  }),
+  //mobile difficulty buttons
+  mobileDifficulty: $("#difficultymobile").click(function () {
+    if ($("#difficultymobile").text() === "Hard Mode") {
+      game.speed = 2;
+      game.multiplier = 20;
+      $("#difficultymobile").text("Normal Mode");} 
+    else {
+      game.speed = 1;
+      game.multiplier = 10;
+      $("#difficultymobile").text("Hard Mode");
+      }
+    })
+}
+//object for other screen elements
+const screen = {
 //build and show post-game feedback
-function displayErrorsList () {
-$("#errorslist").html(`<h2>Thanks for playing!</h2> <h3>Words to review:</h3><ul><li><h4>${game.listErrors[0]}</h4></li><li><h4>${game.listErrors[1]}</h4></li><li><h4>${game.listErrors[2]}</h4></li><li><h4>${game.listErrors[3]}</h4></li></ul><h3><b>HIGH SCORE: ${game.highScore}</b>`)
-$("#errorslist").removeClass("d-none");
-}
-
-//hide errors list
-
-function hideErrorsList () {
-  $("#errorslist").addClass("d-none");
-  }
-
-//disable and enable buttons
-function disableButtons() {
-  $('.alternativebuttons').prop("disabled", true);
- }
- function enableButtons() {
-  $('.alternativebuttons').prop("disabled", false);
-}
-
-// difficulty buttons
-
-$("#easybutton").click(function () {
-  game.speed = 0.5;
-  game.multiplier = 5;
-});
-
-$("#normalbutton").click(function () {
-  game.speed = 1;
-  game.multiplier = 10;
-});
-
-$("#hardbutton").click(function () {
-  game.speed = 2;
-  game.multiplier = 20;
-});
-
-$("#difficultymobile").click(function () {
-  if ($("#difficultymobile").text() === "Hard Mode") {
-  game.speed = 2;
-  game.multiplier = 20;
-  $("#difficultymobile").text("Normal Mode");} 
-  else {
-  game.speed = 1;
-  game.multiplier = 10;
-  $("#difficultymobile").text("Hard Mode");
-  }
-});
-
-
-// update and reset hearts
-
-function updateHearts() {
-  $(".activeheart").last().removeClass("activeheart");
-}
-function resetHearts() {
-  $(".heart").addClass("activeheart");
-}
+  displayErrorsList: function () {
+    $("#errorslist").html(`<h2>Thanks for playing!</h2> <h3>Words to review:</h3><ul><li><h4>${game.listErrors[0]}</h4></li><li><h4>${game.listErrors[1]}</h4></li><li><h4>${game.listErrors[2]}</h4></li><li><h4>${game.listErrors[3]}</h4></li></ul><h3><b>HIGH SCORE: ${game.highScore}</b>`)
+    $("#errorslist").removeClass("d-none");
+    },
+//hide errors list on new game
+  hideErrorsList: function () {
+    $("#errorslist").addClass("d-none");
+  },
+//update hearts
+  updateHearts: function() {
+    $(".activeheart").last().removeClass("activeheart");
+  },
+// reset hearts
+  resetHearts: function () {
+    $(".heart").addClass("activeheart");
+  },
 
 // update score 
-function updateScore () {
- $("#scorecounter").text(game.points);
-}
-
-// update streak
-
-function updateStreak () {
-  $("#streakcounter").text(game.streak);
- }
-// updating score & streak
- function updateAll () {
-  updateScore();
-  updateStreak();
-}
-
-// audio
-
-var bgMusic = document.getElementById("bgmusic");
-bgMusic.loop = true;
-var correctSound = document.getElementById("correctsound");
-var incorrectSound = document.getElementById("incorrectsound");
-
-// audio control 
-
-var musicOn = document.getElementById("musiccheckbox");
-var soundOn = document.getElementById("soundcheckbox");
-var musicControl = document.getElementById("musiclabel");
-
-
-// audio functions
-
-function playCorrectSound () {
-  if (soundOn.checked == true) {
-    correctSound.play();
+  updateScore: function () {
+    $("#scorecounter").text(game.points);
+  },
+  updateStreak: function () {
+    $("#streakcounter").text(game.streak);
+   },
+  // update score & streak
+  updateAll: function  () {
+  screen.updateScore();
+  screen.updateStreak();
   }
 }
-
-function playIncorrectSound () {
-  if (soundOn.checked == true) {
-    incorrectSound.play();
-  }
+//starting game
+window.onload = function () {
+  game.init();
+  canvas.updateCanvas();
 }
-musicControl.onclick = function () {
-  if (musicOn.checked == true) {
-    bgMusic.play();
-} else {
-  bgMusic.pause();
-}};
