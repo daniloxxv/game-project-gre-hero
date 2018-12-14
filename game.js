@@ -14,9 +14,22 @@ const game = {
     //pushing meaning of chosen word and three others into an array
     getMeanings: function () {
             game.meanings.push(game.chosenObject.meaning);
-            for (var i = 0; i < 3; i++) {
-                game.meanings.push(game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning);
-                }
+            var meaning1 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
+            game.meanings.push(meaning1)
+            var meaning2 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
+            if (meaning2 != meaning1) {
+                game.meanings.push(meaning2)
+            } else {
+                meaning2 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
+                game.meanings.push(meaning2)
+            }
+            var meaning3 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
+            if (meaning3 != meaning1 && meaning3 != meaning2) {
+                game.meanings.push(meaning3)
+            } else {
+                meaning3 = game.wordsArray[Math.floor((Math.random() * game.wordsArray.length))].meaning;
+                game.meanings.push(meaning3)
+            }
             game.shuffle(game.meanings);
           },
     //shuffling meanings
